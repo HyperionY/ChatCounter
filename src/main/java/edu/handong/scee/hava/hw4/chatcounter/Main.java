@@ -1,6 +1,5 @@
 package edu.handong.scee.hava.hw4.chatcounter;
 
-import java.lang.StackWalker.Option;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -10,6 +9,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 
 /**
@@ -118,11 +118,11 @@ public class Main {
 		return opt;
 	}
 	
-	private void printAlert(Options option) {
+	private void printAlert(Options opt) {
 		HelpFormatter formatter = new HelpFormatter();
 		String head = "chat counter program";
 		String tail ="\nif have problem or issues, reported to https://github.com/HyperionY/ChatCounter";
-		formatter.printHelp("HW3", head, option, tail, true);
+		formatter.printHelp("HW3", head, opt, tail, true);
 	}
 
 }
