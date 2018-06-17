@@ -61,7 +61,7 @@ public class Main {
 			filesuperviser.ScanFile(directories.get(i));
 		}
 		messagesuperviser = filesuperviser.getMessageSuperviser();
-		HashMap<String, Integer> inputdata = messagesuperviser.returnCheck();
+		HashMap<String, Integer> inputdata = messagesuperviser.returnMap();
 		TreeMap<Integer, String> sortdata = new TreeMap<Integer, String>();
 		for(String key:inputdata.keySet()) {
 			Integer value = inputdata.get(key);
@@ -80,7 +80,7 @@ public class Main {
 		return filenames;
 	}
 	
-	private boolean parseOptions(Options option, String[] args) {
+	private boolean parseOption(Options option, String[] args) {
 		CommandLineParser parser = new DefaultParser();
 
 		try {
@@ -97,32 +97,32 @@ public class Main {
 	}
 	
 	private Options createOption() {
-		Options option = new Options();
+		Options opt = new Options();
 		
-		option.addOption(Option.builder("p").longOpt("path")
+		opt.addOption(Option.builder("p").longOpt("path")
 				.desc("Display set a directory path or a file.")
 				.hasArg()
 				.argName("Path name to display")
 				.required()
 				.build());
 		
-		option.addOption(Option.builder("c").longOpt("check")
+		opt.addOption(Option.builder("c").longOpt("check")
 				.desc("Display detailed messages.")
 				.argName("check option")
 				.build());
 		
-		option.addOption(Option.builder("a").longOpt("alert")
+		opt.addOption(Option.builder("a").longOpt("alert")
 		        .desc("Alert")
 		        .build());
 
-		return option;
+		return opt;
 	}
 	
 	private void printAlert(Options option) {
 		HelpFormatter formatter = new HelpFormatter();
 		String head = "chat counter program";
 		String tail ="\nif have problem or issues, reported to https://github.com/HyperionY/ChatCounter";
-		formatter.printAlert("HW3", head, option, tail, true);
+		formatter.printHelp("HW3", head, option, tail, true);
 	}
 
 }
