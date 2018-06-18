@@ -71,9 +71,19 @@ public class Main {
 		
 	}
 	
+	public static class ScanFiles implements Runnable {
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
 	private ArrayList<String> setDirectory() {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("What file type of directory? : ");
+		System.out.println("input name of filedirectory? : ");
 		ArrayList<String> filenames = new ArrayList<String>();
 		filenames.add(keyboard.nextLine());
 		keyboard.close();
